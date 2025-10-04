@@ -1,0 +1,38 @@
+print("\t welcome sports world😀 \n__________________________________________ \n \t we sell sports equipment \n__________________________________________ ")
+
+# what do we sell
+print("\t We sell \n1.badminton rackets🏸 $50\n2.tenis racket🎾 $60\n3.soccer ball⚽ $30\n4.football🏈 $40\n5.basketball🏀 $30\n6.volleyball🏐 $100")
+
+
+sports_list = ["Badminton rackets", "Tennis rackets", "Soccer balls", "Footballs", "Basketballs", "Volleyballs"]
+prices = ["50", "60", "30", "40", "30", "100"]
+
+# total
+total = 0
+
+again = "yes"
+
+while again == "yes" or again == "Yes":
+    # what item you want
+    item = int(input("Please select the sequence number of the item you want to buy: "))
+    pricing_of_item = int(prices[item - 1])
+
+    # the amount of items
+    amount = int(input("how much do you want: "))
+
+    # what they want
+    print("I want", amount, sports_list[item - 1])
+
+    are_you_first_time = input("is your first time buying stuff from here (yes/no)? ")
+
+    # discount
+    if are_you_first_time == "yes":
+        print("your total is", "$", pricing_of_item * amount * 0.8)
+        total += pricing_of_item * amount * 0.8
+    else:
+        print("your total is", "$", pricing_of_item * amount)
+        total += pricing_of_item * amount
+
+    again = input("do you want to buy anything else? ")
+
+print("your total is", total)
