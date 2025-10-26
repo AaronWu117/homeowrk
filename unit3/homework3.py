@@ -1,23 +1,29 @@
 from random import randint
-# Generate a random number between 0 and 100
 
+low = int(input("What do you want your lower number for the range to be? "))
+high = int(input("What do you want your higher number for the range to be? "))
 
-tryagain = ("yes")
+random_number = randint(low, high)
 
-while tryagain == "yes" or "Yes" or "YES" or "yES" or "YeS" or "yEs" or "YEs":
-    # Generate a random number between 0 and 100
-   
-    low = int(input("Enter the low number of the range: "))
-    high = int(input("Enter the high number of the range: "))
-    random_number = randint(low, high)
+max_trials = 3
+print(f"You will get {max_trials} tries")
 
-    guess_num = int(input(f"Guess a number between {low} and {high}: "))
-
-    if random_number == guess_num:
-
-        print("You win!")
-
+while max_trials > 0:
+    guess = int(input("Guess the number between your range: "))
+    if guess == random_number:
+        print("Congratulations! You have won!")
+        break
     else:
+        if guess < random_number:
+            print("Your guess is too low.")
+        else:
+            print("Your guess is too high.")
+        
+        max_trials -= 1
+        if max_trials > 0:
+            print("Sorry, not the right number! Try again.")
+            print(f"You have {max_trials} tries left.")
+        else:
+            print("Sorry, you are out of tries. The number was", random_number)
 
-        print(f"You lose! The number was {random_number}" )
-        tryagain = input("Do you want to try again? (yes/no): ")
+print("game over")
